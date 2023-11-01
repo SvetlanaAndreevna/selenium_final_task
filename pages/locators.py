@@ -12,17 +12,17 @@ class LoginPageLocators:
     REGISTER_FORM = (By.ID, 'register_form')
 
 class ProductPageLocators:
-    #
+    # кнопка добавления в корзину
     BUTTON_BASKET = (By.CLASS_NAME, 'btn-add-to-basket')
-    #
+    # имя продукта
     NAME_PRODUCT = (By.CSS_SELECTOR, '.product_main h1')
-    #
+    # имя добавленного в корзину продукта
     NAME_PRODUCT_IN_BASKET = (By.CSS_SELECTOR, '#messages .alertinner:nth-child(2) strong')
-    #
+    # сообщение '... добавлен в вашу корзину'
     MESSAGE_ADD = (By.CSS_SELECTOR, '##messages .alertinner:nth-child(2) ')
-    #
+    # сообщение 'Стоимости корзины ...'
     MESSAGE_ABOUT_PRICE_BASKET = (By.CSS_SELECTOR, '#messages .alertinner p')
-    #
+    # цена корзины
     PRICE_BASKET = (By.CSS_SELECTOR, '#messages .alertinner p strong')
-    #
+    # цена продукта
     PRICE_PRODUCT = (By.CSS_SELECTOR, '.product_main .price_color')
