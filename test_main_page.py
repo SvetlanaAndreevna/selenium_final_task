@@ -4,6 +4,10 @@ from pages.login_page import LoginPage
 
 
 def test_guest_can_go_to_login_page(browser):
+    """проверка, что по кнопке для входа переходим
+    по корректному url адресу, где
+    есть форма логина и
+    есть форма регистрации"""
     link = "http://selenium1py.pythonanywhere.com/"
     page = MainPage(browser, link)
     page.open()
@@ -12,6 +16,7 @@ def test_guest_can_go_to_login_page(browser):
     login_page.should_be_login_page()
 
 def test_guest_should_see_login_link(browser):
+    """проверка наличия кнопки для входа"""
     link = "http://selenium1py.pythonanywhere.com/"
     page = MainPage(browser, link)
     page.open()

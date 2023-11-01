@@ -9,9 +9,11 @@ class BasePage:
         self.browser.implicitly_wait(timeout)  # командa для неявного ожидания
 
     def open(self):
+        """переход по ссылке"""
         self.browser.get(self.url)
 
     def is_element_present(self, how, what):
+        """проверка существования элемента"""
         def is_element_present(self, how, what):
             try:
                 self.browser.find_element(how, what)
