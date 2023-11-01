@@ -8,6 +8,10 @@ class ProductPage(BasePage):
         """Добавление товара в корзину"""
         self.browser.find_element(*ProductPageLocators.BUTTON_BASKET).click()
 
+    def should_not_be_message_about_add_to_basket(self):
+        """Проверка, что cообщение о доб. в корзину не появляется в течение заданного времени"""
+        assert self.is_not_element_present(*ProductPageLocators.MESSAGE_ADD), 'Сообщение о добавлении в корзину появилось, но его не должно быть'
+
     def should_be_add_to_basket(self):
         """Проверка наличия кнопки добавления в корзину"""
         assert self.is_element_present(*ProductPageLocators.BUTTON_BASKET), 'Кнопка для добавления в корзину не найдена'
@@ -33,3 +37,8 @@ class ProductPage(BasePage):
         price_basket = self.browser.find_element(*ProductPageLocators.PRICE_BASKET).text
         price_product = self.browser.find_element(*ProductPageLocators.PRICE_PRODUCT).text
         assert price_product == price_basket, 'Стоимость корзины не равна стоимости добавленного товара'
+
+    def should_is_disappeared(self):
+        """Проверка, что сообщение исчезает в течение заданного времени"""
+        assert self.is_disappeared(*ProductPageLocators.MESSAGE_ADD), 'Сообщение не пропало в течение указанного времени'
+
