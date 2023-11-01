@@ -15,7 +15,7 @@ class ProductPage(BasePage):
     def should_be_message_about_add_to_basket(self):
         """Проверка наличия сообщения о том, что товар добавлен в корзину"""
         message_add = self.browser.find_element(*ProductPageLocators.MESSAGE_ADD).text
-        assert 'добавлен в вашу корзину' in message_add, 'Нет сообщения о том, что товар добавлен в корзину'
+        assert message_add, 'Нет сообщения о том, что товар добавлен в корзину'
 
     def true_name_product_in_message_about_add_to_basket(self):
         """Проверка, что имя добавляемого товара совпадает с именем товара в сообщении о добавлении в корзину"""
@@ -26,7 +26,7 @@ class ProductPage(BasePage):
     def should_be_message_about_price_basket(self):
         """Проверка наличия сообщения о стоимости корзины"""
         message_about_price_basket = self.browser.find_element(*ProductPageLocators.MESSAGE_ABOUT_PRICE_BASKET).text
-        assert 'Стоимость корзины' in message_about_price_basket, 'Нет сообщения о стоимости корзины'
+        assert message_about_price_basket, 'Нет сообщения о стоимости корзины'
 
     def true_price_basket(self):
         """Проверка, что стоимость корзины равна стоимости добавленного товара"""

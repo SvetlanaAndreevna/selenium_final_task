@@ -19,7 +19,7 @@ class ProductPageLocators:
     # имя добавленного в корзину продукта
     NAME_PRODUCT_IN_BASKET = (By.CSS_SELECTOR, '#messages .alertinner:nth-child(2) strong')
     # сообщение '... добавлен в вашу корзину'
-    MESSAGE_ADD = (By.CSS_SELECTOR, '##messages .alertinner:nth-child(2) ')
+    MESSAGE_ADD = (By.CSS_SELECTOR, '#messages .alertinner:nth-child(2) ')
     # сообщение 'Стоимости корзины ...'
     MESSAGE_ABOUT_PRICE_BASKET = (By.CSS_SELECTOR, '#messages .alertinner p')
     # цена корзины
