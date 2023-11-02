@@ -1,5 +1,4 @@
 from pages.product_page import ProductPage
-from pages.locators import ProductPageLocators
 import pytest
 import time
 
@@ -22,6 +21,8 @@ url = 'http://selenium1py.pythonanywhere.com/catalogue/the-shellcoders-handbook_
                                   "http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/?promo=offer8",
                                   "http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/?promo=offer9"])
 def test_guest_can_add_product_to_basket(browser, link):
+    """Smoke тест на возможность добавления товара в корзину и
+    корректность отображаемых после этого сообщений"""
     page = ProductPage(browser, link)
     page.open()
     page.should_be_add_to_basket()
@@ -37,6 +38,8 @@ def test_guest_can_add_product_to_basket(browser, link):
 
 @pytest.mark.skip
 def test_guest_cant_see_success_message_after_adding_product_to_basket(browser):
+    """Тест на непоявление в течение заданного времени cообщения о доб. в корзину
+    после добавления товара в корзину"""
     page = ProductPage(browser, url)
     page.open()
     page.product_add_to_basket()
@@ -45,6 +48,8 @@ def test_guest_cant_see_success_message_after_adding_product_to_basket(browser):
 
 
 def test_guest_cant_see_success_message(browser):
+    """Тест на непоявление в течение заданного времени cообщения о доб. в корзину
+    до добавления товара в корзину"""
     page = ProductPage(browser, url)
     page.open()
     page.should_not_be_message_about_add_to_basket()
@@ -52,6 +57,8 @@ def test_guest_cant_see_success_message(browser):
 
 @pytest.mark.skip
 def test_message_disappeared_after_adding_product_to_basket(browser):
+    """Тест на исчезание в течение заданного времени cообщения о доб. в корзину
+    после добавления товара в корзину"""
     page = ProductPage(browser, url)
     page.open()
     page.product_add_to_basket()
