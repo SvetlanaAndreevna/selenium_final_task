@@ -29,3 +29,11 @@ class ProductPageLocators:
     PRICE_BASKET = (By.CSS_SELECTOR, '#messages .alertinner p strong')
     # цена продукта
     PRICE_PRODUCT = (By.CSS_SELECTOR, '.product_main .price_color')
+
+class BasketPageLocators:
+    # кнопка для перехода в корзину в шапке сайта
+    BUTTON_GO_TO_BASKET = (By.CSS_SELECTOR, '.basket-mini a.btn')
+    # товары в корзине
+    PRODUCTS_IN_BASKET = (By.CLASS_NAME, 'basket_summary')
+    # сообщение о том, что корзина пуста
+    MESSAGE_ABOUT_EMPTY_BASKET = (By.CSS_SELECTOR, '#content_inner>p')

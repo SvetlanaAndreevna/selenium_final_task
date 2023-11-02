@@ -3,7 +3,7 @@ from selenium.common.exceptions import NoAlertPresentException
 from selenium.common.exceptions import TimeoutException
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-from .locators import BasePageLocators
+from .locators import BasePageLocators, BasketPageLocators
 import math
 
 
@@ -50,6 +50,13 @@ class BasePage:
     def should_be_login_link(self):
         """Проверка наличия кнопки для входа"""
         assert self.is_element_present(*BasePageLocators.LOGIN_LINK), 'Кнопка для входа не найдена'
+
+    def go_to_basket(self):
+        """Переход в корзину по кнопке в шапке сайта"""
+        try:
+            self.browser.find_element(*BasketPageLocators.BUTTON_GO_TO_BASKET).click()
+        except NoSuchElementException:
+            print('Кнопка для просмотра корзины не найдена')
 
     def solve_quiz_and_get_code(self):
         """Метод для получения проверочного кода.
