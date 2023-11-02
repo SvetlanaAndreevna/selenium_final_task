@@ -4,8 +4,8 @@ from pages.login_page import LoginPage
 # ФАЙЛ С ТЕСТАМИ ДЛЯ ГЛАВНОЙ СТРАНИЦЫ
 
 def test_guest_can_go_to_login_page(browser):
-    """Проверка, что по кнопке для входа переходим
-    по корректному url адресу, где
+    """Тест, что с главной страницы
+    по кнопке для входа переходим по корректному url адресу, где
     есть форма логина и
     есть форма регистрации"""
     link = "http://selenium1py.pythonanywhere.com/"
@@ -17,7 +17,7 @@ def test_guest_can_go_to_login_page(browser):
 
 
 def test_guest_should_see_login_link(browser):
-    """проверка наличия кнопки для входа"""
+    """Тест на наличие кнопки для входа"""
     link = "http://selenium1py.pythonanywhere.com/"
     page = MainPage(browser, link)
     page.open()

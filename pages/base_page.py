@@ -3,6 +3,7 @@ from selenium.common.exceptions import NoAlertPresentException
 from selenium.common.exceptions import TimeoutException
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
+from .locators import BasePageLocators
 import math
 
 
@@ -14,11 +15,11 @@ class BasePage:
         self.browser.implicitly_wait(timeout)  # командa для неявного ожидания
 
     def open(self):
-        """Переход по ссылке"""
+        """Метод для перехода по ссылке"""
         self.browser.get(self.url)
 
     def is_element_present(self, how, what):
-        """Проверка существования элемента"""
+        """Метод для проверки существования элемента"""
         try:
             element = self.browser.find_element(how, what)
         except NoSuchElementException:
@@ -26,7 +27,7 @@ class BasePage:
         return True
 
     def is_not_element_present(self, how, what, timeout=4):
-        """Проверка, что элемент не появляется в течение заданного времени"""
+        """Метод для проверки, что элемент не появляется в течение заданного времени"""
         try:
             WebDriverWait(self.browser, timeout).until(EC.presence_of_element_located((how, what)))
         except TimeoutException:
@@ -34,12 +35,21 @@ class BasePage:
         return False
 
     def is_disappeared(self, how, what, timeout=4):
-        """Проверка, что элемент исчезает в течение заданного времени"""
+        """Метод для проверки, что элемент исчезает в течение заданного времени"""
         try:
             WebDriverWait(self.browser, timeout, 1, TimeoutException).until_not(EC.presence_of_element_located((how, what)))
         except TimeoutException:
             return False
         return True
+
+    def go_to_login_page(self):
+        """Метод для перехода на страницу с формой входа и регистрации"""
+        login_link = self.browser.find_element(*BasePageLocators.LOGIN_LINK)
+        login_link.click()
+
+    def should_be_login_link(self):
+        """Проверка наличия кнопки для входа"""
+        assert self.is_element_present(*BasePageLocators.LOGIN_LINK), 'Кнопка для входа не найдена'
 
     def solve_quiz_and_get_code(self):
         """Метод для получения проверочного кода.

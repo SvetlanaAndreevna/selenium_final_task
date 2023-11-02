@@ -2,6 +2,9 @@ from selenium.webdriver.common.by import By
 
 # каждый селектор в классе— это пара: как искать и что искать
 class MainPageLocators:
+    pass
+
+class BasePageLocators:
     # кнопка для входа
     LOGIN_LINK = (By.CSS_SELECTOR, "#login_link")
 
@@ -20,7 +23,7 @@ class ProductPageLocators:
     NAME_PRODUCT_IN_BASKET = (By.CSS_SELECTOR, '#messages .alertinner:nth-child(2) strong')
     # сообщение '... добавлен в вашу корзину'
     MESSAGE_ADD = (By.CSS_SELECTOR, '#messages .alertinner:nth-child(2) ')
-    # сообщение 'Стоимости корзины ...'
+    # сообщение 'Стоимость корзины ...'
     MESSAGE_ABOUT_PRICE_BASKET = (By.CSS_SELECTOR, '#messages .alertinner p')
     # цена корзины
     PRICE_BASKET = (By.CSS_SELECTOR, '#messages .alertinner p strong')
