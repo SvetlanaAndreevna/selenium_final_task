@@ -7,12 +7,23 @@ class MainPageLocators:
 class BasePageLocators:
     # кнопка для входа
     LOGIN_LINK = (By.CSS_SELECTOR, "#login_link")
+    # значок зарегистрированного пользователя
+    USER_ICON = (By.CSS_SELECTOR, ".icon-user")
 
 class LoginPageLocators:
     # форма для ввода логина и пароля
     LOGIN_FORM = (By.ID, 'login_form')
     # форма для регистрации
     REGISTER_FORM = (By.ID, 'register_form')
+    # поле регистрации для ввода email
+    REGISTRATION_EMAIL = (By.NAME, 'registration-email')
+    # поле регистрации для ввода пароля
+    REGISTRATION_PASSWORD1 = (By.NAME, 'registration-password1')
+    # поле регистрации для повторного ввода пароля
+    REGISTRATION_PASSWORD2 = (By.NAME, 'registration-password2')
+    # КНОПКА ЗАРЕГИСТРИРОВАТЬСЯ
+    REGISTRATION_BUTTON = (By.NAME, 'registration_submit')
+
 
 class ProductPageLocators:
     # кнопка добавления в корзину

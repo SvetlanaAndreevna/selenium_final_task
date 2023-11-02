@@ -58,6 +58,9 @@ class BasePage:
         except NoSuchElementException:
             print('Кнопка для просмотра корзины не найдена')
 
+    def should_be_authorized_user(self):
+        assert self.is_element_present(*BasePageLocators.USER_ICON), 'Значок пользователя не отображается. Вероятно, неавторизованный пользователь'
+
     def solve_quiz_and_get_code(self):
         """Метод для получения проверочного кода.
         Запускайть PyTest в консоли с параметром -s"""
